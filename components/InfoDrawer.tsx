@@ -11,28 +11,36 @@ import {
 } from "@/components/ui/drawer";
 import { Button } from "./ui/button";
 import { Info } from "lucide-react";
-import { Rule } from "@/utils/utils";
+import { InfoElement } from "@/utils/utils";
 
 interface InfoDrawerProps {
-  rules: Rule[];
+  description: InfoElement[];
 }
 
-const InfoDrawer = ({ rules }: InfoDrawerProps) => {
+const InfoDrawer = ({ description }: InfoDrawerProps) => {
   return (
     <Drawer>
       <DrawerTrigger>
         <Info className="h-8 w-8 text-gray-500 hover:text-gray-700" />
       </DrawerTrigger>
-      <DrawerContent className="bg-purple-500 px-8 md:px-16">
+      <DrawerContent className="bg-purple-300 px-8 md:px-16">
         <DrawerHeader>
-          <DrawerTitle className="text-xl font-semibold">Rules</DrawerTitle>
-          <DrawerDescription className="text-zinc-900 flex gap-2 flex-col mt-2">
-            {rules.map((rule, index) => (
-              <div key={index} className="flex flex-row gap-1">
+          <DrawerTitle className="text-xl font-semibold">
+            What&apos;s Conway&apos;s Game of Life?
+          </DrawerTitle>
+          <DrawerDescription className="text-gray-900 flex gap-2 flex-col mt-2">
+            <p>
+              Conway&apos;s Game of Life is a cellular automaton that is played
+              on a 2D square grid. Each cell on the grid can be either alive or
+              dead, and they evolve according to the following rules:
+            </p>
+            {description.map((rule, index) => (
+              <div key={index} className="gap-1 inline-flex">
                 <p className="font-bold underline">{rule.label}</p>
                 <p>{rule.description}</p>
               </div>
             ))}
+            <p className="mt-2 font-bold">Seed or draw desired grid to play.</p>
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>

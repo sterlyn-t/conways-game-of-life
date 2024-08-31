@@ -17,12 +17,12 @@ export const DIRECTIONS = [
   [-1, 1], // Up-Right
 ];
 
-export interface Rule {
+export interface InfoElement {
   label: string;
   description: string;
 }
 
-export const RULES: Rule[] = [
+export const RULES: InfoElement[] = [
   {
     label: "Birth rule:",
     description:

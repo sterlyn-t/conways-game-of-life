@@ -174,7 +174,7 @@ export default function Home() {
           <option value={100}>Fast</option>
           <option value={50}>Lightning</option>
         </Select>
-        <InfoDrawer rules={RULES} />
+        <InfoDrawer description={RULES} />
       </div>
       <div
         style={{
