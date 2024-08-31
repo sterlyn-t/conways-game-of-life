@@ -40,7 +40,9 @@ const InfoDrawer = ({ description }: InfoDrawerProps) => {
                 <p>{rule.description}</p>
               </div>
             ))}
-            <p className="mt-2 font-bold">Seed or draw desired grid to play.</p>
+            <p className="mt-2 font-bold italic">
+              Seed or draw desired grid to play.
+            </p>
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter>
