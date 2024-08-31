@@ -3,14 +3,19 @@
 import Button from "@/components/Button";
 import PlayPauseButton from "@/components/PlayPauseButton";
 import Select from "@/components/Select";
-import { COLS, createEmptyGrid, DIRECTIONS, ROWS } from "@/utils/utils";
+import { COLS, createEmptyGrid, DIRECTIONS, ROWS, RULES } from "@/utils/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { twMerge } from "tailwind-merge";
+import { Bangers } from "next/font/google";
+import { Info } from "lucide-react";
+import InfoDrawer from "@/components/InfoDrawer";
+const bangers = Bangers({ subsets: ["latin"], weight: ["400"] });
 
 export default function Home() {
   const [grid, setGrid] = useState<number[][]>(createEmptyGrid());
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
   const [isMouseDown, setIsMouseDown] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [speed, setSpeed] = useState<number>(100);
 
   const getGridSize = () => {
@@ -118,7 +123,12 @@ export default function Home() {
   return (
     <main className="h-screen w-screen flex items-center p-4  flex-col gap-4 relative">
       <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#a333ee_100%)]"></div>
-      <h1 className="md:text-2xl text-xl font-mono text-slate-300 font-bold">
+      <h1
+        className={twMerge(
+          "md:text-3xl text-2xl text-slate-300",
+          bangers.className
+        )}
+      >
         Conway&apos;s Game of Life
       </h1>
       <div className="gap-4 flex items-center">
@@ -164,6 +174,7 @@ export default function Home() {
           <option value={100}>Fast</option>
           <option value={50}>Lightning</option>
         </Select>
+        <InfoDrawer rules={RULES} />
       </div>
       <div
         style={{

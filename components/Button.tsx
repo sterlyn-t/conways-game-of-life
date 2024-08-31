@@ -1,15 +1,20 @@
 import React from "react";
+import { twMerge } from "tailwind-merge";
 
 interface ButtonProps {
   onClick: () => void;
+  iconButton?: boolean;
   children: React.ReactNode;
 }
 
-const Button = ({ onClick, children }: ButtonProps) => {
+const Button = ({ onClick, iconButton, children }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className="transition flex ease-in items-center justify-center h-8 px-4 rounded-full shadow-md bg-gray-700 hover:bg-gray-800"
+      className={twMerge(
+        "transition flex ease-in items-center justify-center rounded-full h-8 shadow-md bg-gray-700 hover:bg-gray-800",
+        iconButton ? "w-8" : "px-4"
+      )}
     >
       {children}
     </button>

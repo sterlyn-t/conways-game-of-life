@@ -16,3 +16,25 @@ export const DIRECTIONS = [
   [-1, 0], // Up
   [-1, 1], // Up-Right
 ];
+
+export interface Rule {
+  label: string;
+  description: string;
+}
+
+export const RULES: Rule[] = [
+  {
+    label: "Birth rule:",
+    description:
+      "An empty, or “dead,” cell with precisely three “live” neighbors (full cells) becomes live.",
+  },
+  {
+    label: "Death rule:",
+    description:
+      "A live cell with zero or one neighbors dies of isolation; a live cell with four or more neighbors dies of overcrowding.",
+  },
+  {
+    label: "Survival rule:",
+    description: "A live cell with two or three neighbors remains alive.",
+  },
+];
