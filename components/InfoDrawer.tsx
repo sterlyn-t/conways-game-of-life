@@ -23,7 +23,8 @@ const InfoDrawer = ({ description }: InfoDrawerProps) => {
       <DrawerTrigger>
         <Info className="h-8 w-8 text-gray-500 hover:text-gray-700" />
       </DrawerTrigger>
-      <DrawerContent className="bg-purple-300 px-8 md:px-16">
+      {/* <DrawerContent className="bg-purple-300 px-8 md:px-16"> */}
+      <DrawerContent className="bg-green-400 px-8 md:px-16">
         <DrawerHeader>
           <DrawerTitle className="text-xl font-semibold">
             What&apos;s Conway&apos;s Game of Life?

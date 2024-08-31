@@ -122,7 +122,9 @@ export default function Home() {
 
   return (
     <main className="h-screen w-screen flex items-center p-4  flex-col gap-4 relative">
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#a333ee_100%)]"></div>
+      {/* <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#a333ee_100%)]"></div> */}
+      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#33eea3_100%)]"></div>
+
       <h1
         className={twMerge(
           "md:text-3xl text-2xl text-slate-300",
@@ -187,11 +189,17 @@ export default function Home() {
           rows.map((_, originalColIndex) => (
             <button
               key={`${originalRowIndex}-${originalColIndex}`}
+              // className={twMerge(
+              //   "border border-[#9050e9]",
+              //   grid[originalRowIndex][originalColIndex]
+              //     ? "bg-[#ad7bee]"
+              //     : "bg-[#240643]"
+              // )}
               className={twMerge(
-                "border border-[#9050e9]",
+                "border border-[#50e990]", // Vibrant green
                 grid[originalRowIndex][originalColIndex]
-                  ? "bg-[#ad7bee]"
-                  : "bg-[#240643]"
+                  ? "bg-[#7beead]" // Lighter muted green
+                  : "bg-[#04240b]" // Dark green
               )}
               onMouseDown={handleMouseDown}
               onMouseUp={handleMouseUp}
