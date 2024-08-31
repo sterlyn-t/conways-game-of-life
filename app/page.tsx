@@ -14,15 +14,15 @@ export default function Home() {
   const [speed, setSpeed] = useState<number>(100);
 
   const getGridSize = () => {
-    let size = 15;
     if (typeof window !== "undefined") {
-      size = Math.min(
+      const size = Math.min(
         (window.innerWidth - 32) / COLS,
         (window.innerHeight - 200) / ROWS,
         15
       );
+      return size;
     }
-    return size;
+    return 15;
   };
   const [cellSize, setCellSize] = useState<number>(getGridSize());
 
@@ -114,7 +114,7 @@ export default function Home() {
   return (
     <main className="h-screen w-screen flex items-center p-4  flex-col gap-4 relative">
       <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#a333ee_100%)]"></div>
-      <h1 className="md:text-2xl text-xl font-mono text-slate-300">
+      <h1 className="md:text-2xl text-xl font-mono text-slate-300 font-bold">
         Conway&apos;s Game of Life
       </h1>
       <div className="gap-4 flex items-center">
