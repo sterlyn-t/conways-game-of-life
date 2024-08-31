@@ -14,11 +14,14 @@ export default function Home() {
   const [speed, setSpeed] = useState<number>(100);
 
   const getGridSize = () => {
-    const size = Math.min(
-      (window.innerWidth - 32) / COLS,
-      (window.innerHeight - 200) / ROWS,
-      15
-    );
+    let size = 15;
+    if (typeof window !== "undefined") {
+      size = Math.min(
+        (window.innerWidth - 32) / COLS,
+        (window.innerHeight - 200) / ROWS,
+        15
+      );
+    }
     return size;
   };
   const [cellSize, setCellSize] = useState<number>(getGridSize());
@@ -27,10 +30,14 @@ export default function Home() {
     const handleResize = () => {
       setCellSize(getGridSize());
     };
-    window.addEventListener("resize", handleResize);
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", handleResize);
+    }
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      if (typeof window !== "undefined") {
+        window.removeEventListener("resize", handleResize);
+      }
     };
   }, []);
 
