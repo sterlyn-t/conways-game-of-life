@@ -26,6 +26,10 @@ export default function Home() {
   };
   const [cellSize, setCellSize] = useState<number>(getGridSize());
 
+  const isGridEmpty = (grid: number[][]): boolean => {
+    return grid.every((row) => row.every((cell) => cell === 0));
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setCellSize(getGridSize());
@@ -127,6 +131,7 @@ export default function Home() {
             }
           }}
           isPlaying={isPlaying}
+          disabled={isGridEmpty(grid)}
         />
         <Button
           onClick={() => {

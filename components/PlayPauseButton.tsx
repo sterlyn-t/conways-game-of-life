@@ -1,13 +1,18 @@
-import { CirclePause, CirclePlay } from "lucide-react";
+import { Pause, Play } from "lucide-react";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
 interface PlayPauseButtonProps {
   onClick: () => void;
   isPlaying: boolean;
+  disabled: boolean;
 }
 
-const PlayPauseButton = ({ onClick, isPlaying }: PlayPauseButtonProps) => {
+const PlayPauseButton = ({
+  onClick,
+  isPlaying,
+  disabled,
+}: PlayPauseButtonProps) => {
   return (
     <button
       className={twMerge(
@@ -17,12 +22,9 @@ const PlayPauseButton = ({ onClick, isPlaying }: PlayPauseButtonProps) => {
           : "bg-green-500 hover:bg-green-700"
       )}
       onClick={onClick}
+      disabled={disabled}
     >
-      {isPlaying ? (
-        <CirclePause className="h-6 w-6" />
-      ) : (
-        <CirclePlay className="h-6 w-6" />
-      )}
+      {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
     </button>
   );
 };
