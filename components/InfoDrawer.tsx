@@ -48,7 +48,9 @@ const InfoDrawer = ({ description }: InfoDrawerProps) => {
         </DrawerHeader>
         <DrawerFooter>
           <DrawerClose>
-            <Button variant="outline">Close</Button>
+            <Button variant="outline" className="rounded-full">
+              Close
+            </Button>
           </DrawerClose>
         </DrawerFooter>
       </DrawerContent>
